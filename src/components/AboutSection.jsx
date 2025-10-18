@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { CircuitBoard, Brain, Users, Lightbulb, Cpu, Bot, Wrench } from 'lucide-react'
+import { Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Link } from 'react-router-dom'
@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 const AboutSection = () => {
   const features = [
     {
-      Icon: CircuitBoard,
       title: "Electronics & Hardware",
       description: "From PCB design to IoT devices, robotics, and embedded systems - we build the future with circuits.",
       color: "text-cyan",
@@ -16,7 +15,6 @@ const AboutSection = () => {
       glowColor: "group-hover:shadow-cyan/20"
     },
     {
-      Icon: Bot,
       title: "Robotics & AI", 
       description: "Autonomous systems, machine learning, computer vision, and intelligent automation projects.",
       color: "text-blue-400",
@@ -24,7 +22,6 @@ const AboutSection = () => {
       glowColor: "group-hover:shadow-blue-400/20"
     },
     {
-      Icon: Cpu,
       title: "Computer Science",
       description: "Full-stack development, algorithms, data structures, and cutting-edge software solutions.",
       color: "text-blue-500",
@@ -32,7 +29,6 @@ const AboutSection = () => {
       glowColor: "group-hover:shadow-blue-500/20"
     },
     {
-      Icon: Wrench,
       title: "Innovation Lab",
       description: "Hackathons, research projects, and collaborative innovation where hardware meets software.",
       color: "text-sky-400",
@@ -111,20 +107,13 @@ const AboutSection = () => {
               >
                 <Card className={`card-hover h-full p-6 bg-slate/30 border-slate/30 hover:border-${feature.color.split('-')[1]}/30 transition-all duration-300 group hover:shadow-lg ${feature.glowColor} hover:scale-105`}>
                   <CardContent className="p-0">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0">
-                        <div className={`p-3 ${feature.bgColor} rounded-lg robot-glow group-hover:scale-110 transition-transform duration-300`}>
-                          <feature.Icon className={`h-6 w-6 ${feature.color}`} />
-                        </div>
-                      </div>
-                      <div>
+                    <div>
                         <h3 className={`font-semibold text-light mb-2 font-heading group-hover:${feature.color} transition-colors duration-300`}>
                           {feature.title}
                         </h3>
                         <p className="text-sm text-light/70 leading-relaxed">
                           {feature.description}
                         </p>
-                      </div>
                     </div>
                   </CardContent>
                 </Card>

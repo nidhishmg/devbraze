@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Sparkles, Cpu, Code, Zap, CircuitBoard, Wifi, Database, Users } from 'lucide-react'
+import { Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const HeroSection = () => {
@@ -27,15 +27,7 @@ const HeroSection = () => {
     }
   }
 
-  const floatingIcons = [
-    { Icon: Cpu, delay: 0, x: "8%", y: "15%", color: "text-cyan" },
-    { Icon: Code, delay: 1, x: "85%", y: "25%", color: "text-blue-400" },
-    { Icon: CircuitBoard, delay: 1.5, x: "12%", y: "75%", color: "text-blue-500" },
-    { Icon: Zap, delay: 2, x: "90%", y: "70%", color: "text-sky-400" },
-    { Icon: Wifi, delay: 0.5, x: "5%", y: "45%", color: "text-blue-300" },
-    { Icon: Database, delay: 2.5, x: "88%", y: "50%", color: "text-indigo-400" },
-    { Icon: Sparkles, delay: 0.8, x: "15%", y: "35%", color: "text-cyan-300" }
-  ]
+  const floatingIcons = []
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -109,9 +101,7 @@ const HeroSection = () => {
           variants={itemVariants}
           className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-slate/30 via-slate/20 to-slate/30 backdrop-blur-sm border border-cyan/30 text-cyan text-sm font-medium mb-6 animate-glow-border"
         >
-          <CircuitBoard className="h-4 w-4 mr-2 animate-pulse robot-glow" />
           Student-Led Tech Innovation Hub
-          <Zap className="h-4 w-4 ml-2 animate-pulse robot-glow" />
         </motion.div>
 
         {/* Main Heading */}
@@ -166,7 +156,6 @@ const HeroSection = () => {
               { 
                 number: "50+", 
                 label: "Active Members", 
-                icon: Users, 
                 color: "from-cyan to-blue-400",
                 bgColor: "bg-cyan/10",
                 borderColor: "border-cyan/30"
@@ -174,7 +163,6 @@ const HeroSection = () => {
               { 
                 number: "25+", 
                 label: "Projects Built", 
-                icon: Code, 
                 color: "from-blue-400 to-indigo-500",
                 bgColor: "bg-blue-400/10",
                 borderColor: "border-blue-400/30"
@@ -182,7 +170,6 @@ const HeroSection = () => {
               { 
                 number: "15+", 
                 label: "Events Hosted", 
-                icon: Zap, 
                 color: "from-indigo-500 to-purple-500",
                 bgColor: "bg-indigo-500/10",
                 borderColor: "border-indigo-500/30"
@@ -207,12 +194,7 @@ const HeroSection = () => {
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r opacity-0 group-hover:opacity-20 transition-opacity duration-300" 
                        style={{background: `linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to))`}}></div>
                   
-                  {/* Icon */}
-                  <div className="flex justify-center mb-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-r ${stat.color} bg-opacity-20`}>
-                      <stat.icon className={`h-8 w-8 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`} />
-                    </div>
-                  </div>
+
                   
                   {/* Number with animation */}
                   <motion.div 

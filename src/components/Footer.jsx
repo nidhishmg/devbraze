@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Zap, Github, Linkedin, Instagram, Mail, MapPin, Phone } from 'lucide-react'
+import { Github, Linkedin, Instagram, Mail, MapPin, Phone } from 'lucide-react'
 
 const Footer = () => {
   const footerLinks = {
