@@ -13,7 +13,6 @@ const EventsSection = () => {
       date: "Dec 15-17, 2024",
       location: "Tech Lab, Campus",
       participants: "50+ participants",
-      icon: Zap,
       image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       status: "Registration Open",
       category: "Hackathon"
@@ -25,7 +24,6 @@ const EventsSection = () => {
       date: "Nov 28, 2024",
       location: "Conference Hall A",
       participants: "30+ participants",
-      icon: Brain,
       image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       status: "Coming Soon",
       category: "Workshop"
@@ -37,7 +35,6 @@ const EventsSection = () => {
       date: "Jan 10-12, 2025",
       location: "Computer Lab",
       participants: "25+ participants",
-      icon: Code,
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       status: "Early Bird",
       category: "Bootcamp"
@@ -117,22 +114,7 @@ const EventsSection = () => {
                   </div>
                   
                   {/* Floating Icon */}
-                  <motion.div 
-                    className="absolute bottom-4 left-4"
-                    animate={{ 
-                      y: [0, -10, 0],
-                      rotate: [0, 5, -5, 0]
-                    }}
-                    transition={{ 
-                      duration: 4, 
-                      repeat: Infinity, 
-                      ease: "easeInOut" 
-                    }}
-                  >
-                    <div className="p-3 bg-cyan/20 rounded-xl backdrop-blur-sm border border-cyan/30">
-                      {React.createElement(events[0].icon, { className: "h-8 w-8 text-cyan" })}
-                    </div>
-                  </motion.div>
+
                 </div>
 
                 {/* Event Content */}
@@ -207,12 +189,7 @@ const EventsSection = () => {
                         </span>
                       </div>
                       
-                      {/* Icon */}
-                      <div className="absolute bottom-3 right-3">
-                        <div className="p-2 bg-cyan/20 rounded-lg backdrop-blur-sm border border-cyan/30">
-                          {React.createElement(event.icon, { className: "h-5 w-5 text-cyan" })}
-                        </div>
-                      </div>
+
                     </div>
 
                     {/* Content */}

@@ -56,9 +56,7 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-cyan/10 via-blue-400/10 to-blue-500/10 border border-cyan/20 text-cyan text-sm font-medium mb-6 animate-glow-border">
-              <CircuitBoard className="h-4 w-4 mr-2 animate-pulse" />
               About DevBraze
-              <Bot className="h-4 w-4 ml-2 animate-pulse" />
             </div>
             
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-light mb-6">
