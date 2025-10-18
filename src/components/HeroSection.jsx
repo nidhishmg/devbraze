@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDown, Sparkles, Cpu, Code, Zap, CircuitBoard, Wifi, Database, Users } from 'lucide-react'
+import { Sparkles, Cpu, Code, Zap, CircuitBoard, Wifi, Database, Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const HeroSection = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Zap, Github, Linkedin, Instagram, Mail, MapPin, Phone, ArrowUp } from 'lucide-react'
+import { Zap, Github, Linkedin, Instagram, Mail, MapPin, Phone } from 'lucide-react'
 
 const Footer = () => {
   const footerLinks = {
@@ -171,7 +171,7 @@ const Footer = () => {
               className="p-2 bg-cyan/10 border border-cyan/20 rounded-lg hover:bg-cyan/20 transition-all duration-200 text-cyan group"
               aria-label="Scroll to top"
             >
-              <ArrowUp className="h-5 w-5 group-hover:-translate-y-1 transition-transform" />
+              ↑
             </motion.button>
           </div>
         </div>

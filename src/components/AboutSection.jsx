@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, CircuitBoard, Brain, Users, Lightbulb, Cpu, Bot, Wrench } from 'lucide-react'
+import { CircuitBoard, Brain, Users, Lightbulb, Cpu, Bot, Wrench } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Link } from 'react-router-dom'
@@ -89,7 +89,6 @@ const AboutSection = () => {
                 size="lg"
               >
                 Learn More
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </motion.div>

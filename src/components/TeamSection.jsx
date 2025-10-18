@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ChevronLeft, ChevronRight, Users, Linkedin, Github, Mail, ArrowRight } from 'lucide-react'
+import { Users, Linkedin, Github, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -117,40 +117,7 @@ const TeamSection = () => {
 
         {/* Team Carousel */}
         <div className="relative mb-12">
-          {/* Navigation Buttons */}
-          <div className="flex justify-between items-center mb-8">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={prevSlide}
-              className="p-2"
-              disabled={maxSlides <= 1}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            
-            <div className="flex space-x-2">
-              {Array.from({ length: maxSlides }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentSlide ? 'bg-cyan w-6' : 'bg-slate/40'
-                  }`}
-                />
-              ))}
-            </div>
-            
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={nextSlide}
-              className="p-2"
-              disabled={maxSlides <= 1}
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
+
 
           {/* Team Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -243,7 +210,6 @@ const TeamSection = () => {
               className="px-8 py-3 hover:scale-105 transition-all duration-300"
             >
               Meet the Full Team
-              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
         </motion.div>

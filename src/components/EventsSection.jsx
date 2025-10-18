@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Calendar, Users, MapPin, ArrowRight, Code, Zap, Brain } from 'lucide-react'
+import { Calendar, Users, MapPin, Code, Zap, Brain } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -168,7 +168,6 @@ const EventsSection = () => {
                   
                   <Button className="bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 self-start group/btn">
                     Register Now
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                   </Button>
                 </div>
               </div>
@@ -245,7 +244,6 @@ const EventsSection = () => {
                         className="w-full border-cyan/30 text-cyan hover:bg-cyan/10 hover:border-cyan transition-all group/btn"
                       >
                         Learn More
-                        <ArrowRight className="ml-2 h-3 w-3 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
                     </div>
                   </div>
@@ -268,7 +266,6 @@ const EventsSection = () => {
             className="px-8 py-3 bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 hover:scale-105 transition-all duration-300"
           >
             View All Events
-            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </motion.div>
       </div>

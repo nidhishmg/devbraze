@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Sparkles, Users, Zap } from 'lucide-react'
+import { Sparkles, Users, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const CTASection = () => {
@@ -97,7 +97,6 @@ const CTASection = () => {
               className="px-8 py-4 text-lg font-semibold glow-effect hover:scale-105 transition-all duration-300 group"
             >
               Become a Member
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               variant="outline"
