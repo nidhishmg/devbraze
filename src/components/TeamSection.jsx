@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { ChevronLeft, ChevronRight, Users, Linkedin, Github, Mail, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -10,13 +11,12 @@ const TeamSection = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Alex Chen",
+      name: "Srinidhi",
       role: "President",
-      department: "Computer Science",
-      year: "Senior",
-      bio: "Passionate about AI and robotics. Leading DevBraze's vision for innovation and community building.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      skills: ["AI/ML", "Leadership", "Python", "React"],
+      department: "Leadership",
+      bio: "Leading DevBraze's vision for innovation and driving excellence across all club activities.",
+      image: "/api/placeholder/300/400",
+      skills: ["Leadership", "Strategic Planning", "Innovation", "Management"],
       social: {
         linkedin: "#",
         github: "#",
@@ -25,13 +25,12 @@ const TeamSection = () => {
     },
     {
       id: 2,
-      name: "Sarah Rodriguez",
+      name: "Aniketh",
       role: "Tech Lead",
-      department: "Electrical Engineering",
-      year: "Junior",
-      bio: "Hardware enthusiast with expertise in embedded systems and IoT development.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      skills: ["IoT", "Embedded Systems", "C++", "PCB Design"],
+      department: "Technology",
+      bio: "Spearheading technical initiatives and mentoring members in cutting-edge development.",
+      image: "/api/placeholder/300/400",
+      skills: ["Full-Stack", "AI/ML", "System Design", "Mentoring"],
       social: {
         linkedin: "#",
         github: "#",
@@ -40,13 +39,12 @@ const TeamSection = () => {
     },
     {
       id: 3,
-      name: "Marcus Johnson",
-      role: "Event Manager",
-      department: "Computer Engineering",
-      year: "Sophomore",
-      bio: "Organizing impactful events that bring the tech community together for learning and innovation.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      skills: ["Project Management", "Full-Stack", "Node.js", "MongoDB"],
+      name: "Jeevitha",
+      role: "Content & Design Lead",
+      department: "Creative",
+      bio: "Creating engaging content and beautiful designs that represent DevBraze's spirit.",
+      image: "/api/placeholder/300/400",
+      skills: ["UI/UX Design", "Content Creation", "Branding", "Creative Strategy"],
       social: {
         linkedin: "#",
         github: "#",
@@ -55,43 +53,12 @@ const TeamSection = () => {
     },
     {
       id: 4,
-      name: "Emma Watson",
-      role: "Design Lead",
-      department: "Computer Science",
-      year: "Junior",
-      bio: "Creating beautiful and functional user experiences for DevBraze's digital presence.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      skills: ["UI/UX", "Figma", "React", "Design Systems"],
-      social: {
-        linkedin: "#",
-        github: "#",
-        email: "#"
-      }
-    },
-    {
-      id: 5,
-      name: "David Kim",
-      role: "Research Coordinator",
-      department: "Data Science",
-      year: "Senior",
-      bio: "Bridging academic research with practical applications in machine learning and data analytics.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      skills: ["Data Science", "Research", "Python", "TensorFlow"],
-      social: {
-        linkedin: "#",
-        github: "#",
-        email: "#"
-      }
-    },
-    {
-      id: 6,
-      name: "Lisa Park",
-      role: "Community Manager",
-      department: "Information Systems",
-      year: "Sophomore",
-      bio: "Building connections and fostering an inclusive environment for all DevBraze members.",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      skills: ["Community Building", "Marketing", "Social Media", "Communication"],
+      name: "Affan",
+      role: "Event Management Lead",
+      department: "Events",
+      bio: "Orchestrating memorable events that bring tech enthusiasts together for learning.",
+      image: "/api/placeholder/300/400",
+      skills: ["Event Planning", "Project Management", "Logistics", "Coordination"],
       social: {
         linkedin: "#",
         github: "#",
@@ -270,13 +237,15 @@ const TeamSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <Button 
-            size="lg"
-            className="px-8 py-3 hover:scale-105 transition-all duration-300"
-          >
-            Meet the Full Team
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Link to="/team">
+            <Button 
+              size="lg"
+              className="px-8 py-3 hover:scale-105 transition-all duration-300"
+            >
+              Meet the Full Team
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>

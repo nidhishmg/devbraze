@@ -13,6 +13,7 @@ import CTASection from './components/CTASection'
 import Footer from './components/Footer'
 import AboutUsPage from './components/AboutUsPage'
 import EventsPage from './components/EventsPage'
+import TeamPage from './components/TeamPage'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -101,6 +102,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutUsPage />} />
               <Route path="/events" element={<EventsPage />} />
+              <Route path="/team" element={<TeamPage />} />
             </Routes>
           </Router>
         )}
