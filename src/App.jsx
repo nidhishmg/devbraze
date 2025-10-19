@@ -5,7 +5,7 @@ import { Loader2 } from 'lucide-react'
 
 // Import components
 import Navbar from './components/Navbar'
-import HeroSection from './components/HeroSection'
+import HeroChip from './components/HeroChip'
 import AboutSection from './components/AboutSection'
 import EventsSection from './components/EventsSection'
 import TeamSection from './components/TeamSection'
@@ -75,7 +75,7 @@ function App() {
     >
       <Navbar />
       <main>
-        <HeroSection />
+        <HeroChip />
         <AboutSection />
         <EventsSection />
         <TeamSection />
