@@ -1,15 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { SignalOverlay } from './SignalOverlay';
-import { 
-  HERO_TITLE, 
-  HERO_SUBTITLE, 
-  HERO_BADGE, 
-  PRIMARY_CTA, 
-  SECONDARY_CTA, 
-  HERO_STATS 
-} from '@/content/home';
 
 const HeroChip = () => {
   const containerVariants = {
@@ -17,7 +8,7 @@ const HeroChip = () => {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.5,
+        delayChildren: 0.3,
         staggerChildren: 0.2
       }
     }
@@ -36,37 +27,26 @@ const HeroChip = () => {
   };
 
   return (
-    <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-gradient-to-b from-[#0B1324] to-[#0F172A]">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-[#0B1324] to-[#0F172A]">
       {/* Background chip image */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0">
         <img
           src="/images/chip-hero.jpg"
           alt="Futuristic microchip with flowing blue signal lines representing DevBraze electronics and CS theme"
-          className="w-full h-full object-cover object-center opacity-60"
+          className="w-full h-full object-cover object-center"
           style={{ 
-            filter: 'drop-shadow(0 0 40px rgba(56, 189, 248, 0.3))',
-          }}
-          onError={(e) => {
-            // Fallback to gradient background if image fails to load
-            e.target.style.display = 'none';
-            e.target.parentElement.style.background = `
-              radial-gradient(circle at center, rgba(56, 189, 248, 0.1) 0%, transparent 70%),
-              linear-gradient(135deg, #0B1324 0%, #1e293b 50%, #0F172A 100%)
-            `;
+            filter: 'brightness(0.7) contrast(1.2)',
           }}
         />
-        {/* Additional glow overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-blue-500/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/80 via-transparent to-[#0B1324]/60" />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1324]/80 via-[#0B1324]/40 to-[#0F172A]/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A]/90 via-transparent to-[#0B1324]/60" />
       </div>
 
-      {/* Animated signal overlay */}
-      <SignalOverlay />
-
       {/* Content */}
-      <div className="relative container mx-auto px-6 grid lg:grid-cols-12 gap-8 z-10">
+      <div className="relative container mx-auto px-6 z-10">
         <motion.div 
-          className="lg:col-span-7 max-w-4xl"
+          className="max-w-4xl mx-auto text-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -74,18 +54,15 @@ const HeroChip = () => {
           {/* Badge */}
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-slate-800/50 via-slate-700/30 to-slate-800/50 backdrop-blur-sm border border-cyan/30 text-cyan text-sm font-medium mb-6"
-            style={{
-              boxShadow: '0 0 20px rgba(56, 189, 248, 0.2)'
-            }}
+            className="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/50 backdrop-blur-sm border border-cyan/30 text-cyan text-sm font-medium mb-6"
           >
-            {HERO_BADGE}
+            Student-Led Tech Innovation Hub
           </motion.div>
 
           {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-100 mb-6 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-100 mb-6 leading-tight"
           >
             Igniting Innovation through{' '}
             <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
@@ -96,98 +73,59 @@ const HeroChip = () => {
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl leading-relaxed"
+            className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            {HERO_SUBTITLE}
+            Where circuits meet creativity and code transforms ideas into reality. 
+            Join the next generation of innovators building tomorrow's technology.
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 mb-12"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
             <Button
               size="lg"
-              className="px-8 py-3 text-lg font-semibold rounded-xl bg-cyan-500/20 border-2 border-cyan-400/40 text-cyan-100 hover:bg-cyan-500/30 hover:border-cyan-400/60 hover:scale-105 transition-all duration-300"
-              style={{
-                boxShadow: '0 0 25px rgba(56, 189, 248, 0.3)',
-                backdropFilter: 'blur(10px)'
-              }}
+              className="px-8 py-3 text-lg font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white hover:scale-105 transition-all duration-300"
             >
-              {PRIMARY_CTA.label}
+              Join DevBraze
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="px-8 py-3 text-lg font-semibold rounded-xl bg-white/5 border-2 border-white/20 text-slate-100 hover:bg-white/10 hover:border-white/30 hover:scale-105 transition-all duration-300"
-              style={{
-                backdropFilter: 'blur(10px)'
-              }}
+              className="px-8 py-3 text-lg font-semibold border-2 border-cyan-400/60 text-slate-100 hover:bg-cyan-400/10 hover:scale-105 transition-all duration-300 backdrop-blur-sm"
             >
-              {SECONDARY_CTA.label}
+              Explore Events
             </Button>
           </motion.div>
 
           {/* Stats Grid */}
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto"
           >
-            {HERO_STATS.map((stat, index) => (
+            {[
+              { number: "50+", label: "Active Members" },
+              { number: "25+", label: "Projects Built" },
+              { number: "15+", label: "Events Hosted" }
+            ].map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: 1 + index * 0.1,
-                  type: "spring",
-                  stiffness: 200
-                }}
-                className="group cursor-pointer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1 + index * 0.1 }}
+                className="p-6 rounded-xl bg-slate-800/30 backdrop-blur-sm border border-cyan/20 hover:border-cyan/40 transition-all duration-300"
               >
-                <div className={`relative p-6 rounded-2xl ${stat.bgColor} border ${stat.borderColor} backdrop-blur-sm hover:border-opacity-60 transition-all duration-300`}>
-                  {/* Number with animation */}
-                  <motion.div 
-                    className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 text-center`}
-                    initial={{ scale: 0.5 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 1.3 + index * 0.1, type: "spring", stiffness: 200 }}
-                  >
-                    {stat.number}
-                  </motion.div>
-                  
-                  {/* Label */}
-                  <p className="text-slate-300 text-center font-medium text-sm">
-                    {stat.label}
-                  </p>
+                <div className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2">
+                  {stat.number}
                 </div>
+                <p className="text-slate-300 font-medium">
+                  {stat.label}
+                </p>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
-
-        {/* Right side - space for chip visual focus */}
-        <div className="lg:col-span-5 hidden lg:flex items-center justify-center">
-          {/* Optional: Add floating elements or keep space for chip focus */}
-          <motion.div
-            className="relative"
-            animate={{
-              y: [-10, 10, -10],
-              rotate: [0, 1, -1, 0]
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 backdrop-blur-sm flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400/40 to-blue-500/40 animate-pulse" />
-            </div>
-          </motion.div>
-        </div>
       </div>
 
       {/* Scroll indicator */}
