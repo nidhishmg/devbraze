@@ -65,8 +65,12 @@ const HeroChip = () => {
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-100 mb-6 leading-tight"
           >
             Igniting Innovation through{' '}
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
-              Electronics & Code
+            {/* Make 'Electronics &' clearly visible using the same purple/blue gradient style as 'Code' */}
+            <span className="bg-gradient-to-r from-violet-300 via-indigo-300 to-sky-400 bg-clip-text text-transparent drop-shadow-[0_3px_10px_rgba(0,0,0,0.55)]">
+              Electronics &
+            </span>{' '}
+            <span className="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-sky-400 bg-clip-text text-transparent drop-shadow-[0_3px_10px_rgba(0,0,0,0.55)]">
+              Code
             </span>
           </motion.h1>
 
