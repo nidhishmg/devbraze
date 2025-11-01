@@ -237,21 +237,18 @@ const EventsPage = () => {
       
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 parallax-bg"></div>
-        <div className="absolute inset-0 circuit-bg"></div>
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="eventsCircuit" patternUnits="userSpaceOnUse" width="80" height="80">
-                <circle cx="10" cy="10" r="2" fill="#38BDF8"/>
-                <circle cx="70" cy="70" r="2" fill="#60A5FA"/>
-                <path d="M10 10 L70 10 L70 70" stroke="#38BDF8" strokeWidth="0.5" fill="none"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#eventsCircuit)"/>
-          </svg>
-        </div>
+        {/* Background Video (local only) */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover brightness-90"
+          src="/videos/circuit.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        {/* Soft gradient overlays for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/30 to-navy/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-navy/60" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -752,24 +749,7 @@ const EventsPage = () => {
                   </motion.div>
                   <div>
                     <h2 className="text-3xl font-bold text-light mb-2">
-                      <motion.span
-                        animate={{
-                          background: [
-                            'linear-gradient(45deg, #38BDF8, #60A5FA)',
-                            'linear-gradient(45deg, #8B5CF6, #EC4899)',
-                            'linear-gradient(45deg, #10B981, #F59E0B)',
-                            'linear-gradient(45deg, #38BDF8, #60A5FA)'
-                          ]
-                        }}
-                        transition={{ duration: 4, repeat: Infinity }}
-                        style={{
-                          WebkitBackgroundClip: 'text',
-                          WebkitTextFillColor: 'transparent',
-                          backgroundClip: 'text',
-                        }}
-                      >
-                        Past Events Archive
-                      </motion.span>
+                      Past Events Archive
                     </h2>
                     <p className="text-slate-400">🎉 Our journey of amazing events and memories</p>
                   </div>

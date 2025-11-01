@@ -190,12 +190,18 @@ const TeamPage = () => {
       
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 parallax-bg"></div>
-        <div className="absolute inset-0 circuit-bg opacity-30"></div>
-        
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-navy/80 via-navy/60 to-slate/70"></div>
+        {/* Background Video (local only) */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover brightness-90"
+          src="/videos/circuit.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+        {/* Soft gradient overlays for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/30 to-navy/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-navy/60" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div

@@ -51,13 +51,7 @@ const HeroChip = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Badge */}
-          <motion.div
-            variants={itemVariants}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-slate-800/50 backdrop-blur-sm border border-cyan/30 text-cyan text-sm font-medium mb-6"
-          >
-            Student-Led Tech Innovation Hub
-          </motion.div>
+          {/* Badge removed as requested */}
 
           {/* Main Heading */}
           <motion.h1
