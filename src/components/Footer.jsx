@@ -81,13 +81,9 @@ const Footer = () => {
                 <div className="space-y-3 text-sm text-light/60">
                   <div className="flex items-center">
                     <MapPin className="h-4 w-4 mr-3 text-cyan" />
-                    Student Activity Center, Room 204
+                    CV Raman Block, REVA University
                   </div>
-                  {/* Removed email line per request (no mail symbol) */}
-                  <div className="flex items-center">
-                    <Phone className="h-4 w-4 mr-3 text-cyan" />
-                    +1 (555) 123-4567
-                  </div>
+                  {/* Removed phone and email per request */}
                 </div>
               </motion.div>
             </div>
