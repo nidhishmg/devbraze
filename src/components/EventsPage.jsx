@@ -243,12 +243,9 @@ const EventsPage = () => {
               DevBraze Events
               <Zap className="h-4 w-4 ml-2 animate-pulse" />
             </div>
-            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-light mb-6 leading-tight">
-              Upcoming{' '}
-              <span className="gradient-text">Events & Workshops</span>
+              Upcoming <span className="gradient-text">Events & Workshops</span>
             </h1>
-            
             <p className="text-lg text-light/80 max-w-3xl mx-auto mb-8">
               Join our exciting events, workshops, and competitions designed to enhance your skills, 
               expand your network, and accelerate your tech journey.

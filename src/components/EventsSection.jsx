@@ -118,12 +118,7 @@ const EventsSection = () => {
                     )}
                   </div>
                   
-                  <Link to={`/register/${events[0].slug}`}>
-                    <Button className="bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 self-start group/btn">
-                      Register Now
-                    </Button>
-                  </Link>
-                  <Link to={`/admin/events/${events[0].slug}`} className="ml-3 inline-block text-cyan text-sm hover:text-blue-400">Admin</Link>
+                  {/* Registration removed */}
                 </div>
               </div>
             </Card>
@@ -188,13 +183,7 @@ const EventsSection = () => {
                       </div>
 
                       {/* Action Button */}
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        className="w-full border-cyan/30 text-cyan hover:bg-cyan/10 hover:border-cyan transition-all group/btn"
-                      >
-                        Learn More
-                      </Button>
+                      {/* CTA removed */}
                     </div>
                   </div>
                 </Card>

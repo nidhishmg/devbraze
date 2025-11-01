@@ -20,7 +20,7 @@ const Footer = () => {
     ],
     'Connect': [
       { name: 'Discord Server', href: '#' },
-      { name: 'Slack Workspace', href: '/admin/login' },
+      { name: 'Slack Workspace', href: '#' },
       { name: 'Newsletter', href: '#' },
       { name: 'Alumni Network', href: '#' },
       { name: 'Mentorship Program', href: '#' }
