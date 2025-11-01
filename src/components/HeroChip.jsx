@@ -28,12 +28,12 @@ const HeroChip = () => {
 
   return (
     <section className="relative min-h-screen flex items-start md:items-center overflow-hidden pt-28 md:pt-0 bg-gradient-to-b from-[#0B1324] to-[#0F172A]">
-      {/* Background chip image */}
+      {/* Background chip image: hide on mobile, show on md+ */}
       <div className="absolute inset-0">
         <img
           src="/images/chip-hero.jpg"
           alt="Futuristic microchip with flowing blue signal lines representing DevBraze electronics and CS theme"
-          className="w-full h-full object-cover object-center"
+          className="hidden md:block w-full h-full object-cover object-center"
           style={{ 
             filter: 'brightness(0.7) contrast(1.2)',
           }}
