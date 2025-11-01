@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import AboutUsPage from './components/AboutUsPage'
 import EventsPage from './components/EventsPage'
 import TeamPage from './components/TeamPage'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -98,6 +99,7 @@ function App() {
               v7_relativeSplatPath: true
             }}
           >
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutUsPage />} />
