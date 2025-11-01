@@ -50,9 +50,8 @@ const TeamPage = () => {
   image: teamImage("srinidhi.jpg"),
       skills: ["Leadership", "Strategic Planning", "Project Management", "Innovation"],
       social: {
-        linkedin: "#",
-        instagram: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/srinidhi-m-839290261",
+        instagram: "https://www.instagram.com/srinidhi_m7"
       }
     },
     {
@@ -64,9 +63,7 @@ const TeamPage = () => {
   image: teamImage("vedhashree.jpg"),
       skills: ["Operations", "Team Coordination", "Event Planning", "Communication"],
       social: {
-        linkedin: "#",
-        instagram: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/vedhashri-magesh-701878309"
       }
     },
     {
@@ -78,9 +75,8 @@ const TeamPage = () => {
   image: teamImage("chirag-treasurer.jpg"),
       skills: ["Financial Management", "Budgeting", "Resource Planning", "Analytics"],
       social: {
-        linkedin: "#",
-        instagram: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/chirag-sharma-cs",
+        instagram: "https://www.instagram.com/chiragsharma728/"
       }
     },
     {
@@ -92,9 +88,8 @@ const TeamPage = () => {
   image: teamImage("aniketh.jpg"),
       skills: ["Full-Stack Development", "AI/ML", "System Architecture", "Mentoring"],
       social: {
-        linkedin: "#",
-        instagram: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/aniketh-bhosale-849480250/",
+        instagram: "https://www.instagram.com/aniketh_bhosale/"
       }
     },
     {
@@ -106,9 +101,7 @@ const TeamPage = () => {
   image: teamImage("jeevitha.jpg"),
       skills: ["UI/UX Design", "Content Creation", "Brand Design", "Creative Strategy"],
       social: {
-        linkedin: "#",
-        instagram: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/jeevitha-h-gowda-17a977203"
       }
     },
     {
@@ -120,9 +113,8 @@ const TeamPage = () => {
   image: teamImage("chirag-social.jpg"),
       skills: ["Social Media Strategy", "Digital Marketing", "Community Engagement", "Analytics"],
       social: {
-        linkedin: "#",
-        instagram: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/manoj-reddy-421873382?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        instagram: "https://www.instagram.com/themanojverse?igsh=MzM3aG53ejIxd3B5"
       }
     },
     {
@@ -134,9 +126,7 @@ const TeamPage = () => {
   image: teamImage("affan.jpg"),
       skills: ["Event Planning", "Logistics", "Vendor Management", "Team Coordination"],
       social: {
-        linkedin: "#",
-        instagram: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/mohd-affaan-sharif-2386a0291"
       }
     },
     {
@@ -148,9 +138,7 @@ const TeamPage = () => {
   image: teamImage("vina.jpg"),
       skills: ["Marketing Strategy", "Brand Promotion", "Campaigns", "Partnership Development"],
       social: {
-        linkedin: "#",
-        instagram: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/vihashomikhaas"
       }
     }
   ]
@@ -309,12 +297,16 @@ const TeamPage = () => {
                         
                         {/* Social Links */}
                         <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <a href={member.social.linkedin} className="p-2 bg-cyan/20 rounded-lg backdrop-blur-sm border border-cyan/30 text-cyan hover:bg-cyan/30 transition-colors">
-                            <Linkedin className="h-4 w-4" />
-                          </a>
-                          <a href={member.social.instagram} className="p-2 bg-cyan/20 rounded-lg backdrop-blur-sm border border-cyan/30 text-cyan hover:bg-cyan/30 transition-colors">
-                            <Instagram className="h-4 w-4" />
-                          </a>
+                          {member.social?.linkedin && (
+                            <a href={member.social.linkedin} className="p-2 bg-cyan/20 rounded-lg backdrop-blur-sm border border-cyan/30 text-cyan hover:bg-cyan/30 transition-colors">
+                              <Linkedin className="h-4 w-4" />
+                            </a>
+                          )}
+                          {member.social?.instagram && (
+                            <a href={member.social.instagram} className="p-2 bg-cyan/20 rounded-lg backdrop-blur-sm border border-cyan/30 text-cyan hover:bg-cyan/30 transition-colors">
+                              <Instagram className="h-4 w-4" />
+                            </a>
+                          )}
                         </div>
                       </div>
 

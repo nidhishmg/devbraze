@@ -21,9 +21,8 @@ const TeamSection = () => {
   image: teamImage("srinidhi.jpg"),
       skills: ["Leadership", "Strategic Planning", "Innovation", "Management"],
       social: {
-        linkedin: "#",
-        github: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/srinidhi-m-839290261",
+        instagram: "https://www.instagram.com/srinidhi_m7"
       }
     },
     {
@@ -35,9 +34,8 @@ const TeamSection = () => {
   image: teamImage("aniketh.jpg"),
       skills: ["Full-Stack", "AI/ML", "System Design", "Mentoring"],
       social: {
-        linkedin: "#",
-        github: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/aniketh-bhosale-849480250/",
+        instagram: "https://www.instagram.com/aniketh_bhosale/"
       }
     },
     {
@@ -49,9 +47,7 @@ const TeamSection = () => {
   image: teamImage("jeevitha.jpg"),
       skills: ["UI/UX Design", "Content Creation", "Branding", "Creative Strategy"],
       social: {
-        linkedin: "#",
-        github: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/jeevitha-h-gowda-17a977203"
       }
     },
     {
@@ -63,9 +59,7 @@ const TeamSection = () => {
   image: teamImage("affan.jpg"),
       skills: ["Event Planning", "Project Management", "Logistics", "Coordination"],
       social: {
-        linkedin: "#",
-        github: "#",
-        email: "#"
+        linkedin: "https://www.linkedin.com/in/mohd-affaan-sharif-2386a0291"
       }
     }
   ]

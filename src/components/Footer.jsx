@@ -28,8 +28,8 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' }
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/devbraze-reva-204872289', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/devbraze_reva', label: 'Instagram' }
   ]
 
   const scrollToTop = () => {
