@@ -113,7 +113,7 @@ const TeamPage = () => {
     },
     {
       id: 6,
-      name: "Chirag",
+      name: "Manoj",
       role: "Social Media Lead",
       department: "Marketing Team",
       bio: "Building DevBraze's online presence and engaging with the tech community across platforms.",
@@ -141,7 +141,7 @@ const TeamPage = () => {
     },
     {
       id: 8,
-      name: "Vina",
+      name: "Viha",
       role: "Marketing Lead",
       department: "Marketing Team",
       bio: "Developing marketing strategies to promote DevBraze's initiatives and attract new members.",
