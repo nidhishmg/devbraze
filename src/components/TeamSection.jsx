@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Users, Linkedin, Github, Mail } from 'lucide-react'
+import { Users, Linkedin, Instagram } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 
@@ -143,7 +143,7 @@ const TeamSection = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent"></div>
                       
-                      {/* Social Links */}
+                      {/* Social Links (LinkedIn + Instagram) */}
                       <div className="absolute bottom-4 left-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <a 
                           href={member.social.linkedin}
@@ -152,16 +152,10 @@ const TeamSection = () => {
                           <Linkedin className="h-4 w-4 text-cyan" />
                         </a>
                         <a 
-                          href={member.social.github}
+                          href={member.social.instagram || '#'}
                           className="p-2 bg-cyan/20 rounded-lg backdrop-blur-sm hover:bg-cyan/30 transition-colors"
                         >
-                          <Github className="h-4 w-4 text-cyan" />
-                        </a>
-                        <a 
-                          href={member.social.email}
-                          className="p-2 bg-cyan/20 rounded-lg backdrop-blur-sm hover:bg-cyan/30 transition-colors"
-                        >
-                          <Mail className="h-4 w-4 text-cyan" />
+                          <Instagram className="h-4 w-4 text-cyan" />
                         </a>
                       </div>
                     </div>

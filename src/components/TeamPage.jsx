@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Users, Linkedin, Instagram, Mail, ArrowLeft, Star, Award, Heart } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Users, Linkedin, Instagram, ArrowLeft, Star, Award, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import Navbar from './Navbar'

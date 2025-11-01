@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Instagram, Mail, MapPin, Phone } from 'lucide-react'
+import { Linkedin, Instagram, MapPin, Phone } from 'lucide-react'
 
 const Footer = () => {
   const footerLinks = {
@@ -28,10 +28,8 @@ const Footer = () => {
   }
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Mail, href: '#', label: 'Email' }
+    { icon: Instagram, href: '#', label: 'Instagram' }
   ]
 
   const scrollToTop = () => {
@@ -85,10 +83,7 @@ const Footer = () => {
                     <MapPin className="h-4 w-4 mr-3 text-cyan" />
                     Student Activity Center, Room 204
                   </div>
-                  <div className="flex items-center">
-                    <Mail className="h-4 w-4 mr-3 text-cyan" />
-                    hello@devbraze.org
-                  </div>
+                  {/* Removed email line per request (no mail symbol) */}
                   <div className="flex items-center">
                     <Phone className="h-4 w-4 mr-3 text-cyan" />
                     +1 (555) 123-4567
