@@ -28,6 +28,7 @@ const EventsPage = () => {
   const [showPastEvents, setShowPastEvents] = useState(false)
   const [isAutoScrolling, setIsAutoScrolling] = useState(true)
   const [hoveredCard, setHoveredCard] = useState(null)
+  const [selectedEvent, setSelectedEvent] = useState(null)
   const scrollRef = useRef(null)
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -44,8 +45,7 @@ const EventsPage = () => {
 
   // Event modal handler
   const openEventModal = (event) => {
-    console.log('Opening event modal for:', event.title)
-    // TODO: Implement modal functionality
+    setSelectedEvent(event)
   }
 
   // Auto-scroll functionality
@@ -78,103 +78,89 @@ const EventsPage = () => {
   const upcomingEvents = [
     {
       id: 1,
-      title: "DevBraze Annual Hackathon 2025",
-      date: "2025-11-15",
-      time: "09:00 AM",
-      location: "Main Auditorium, College Campus",
-      description: "Join us for the biggest hackathon of the year! Build innovative solutions, compete with the best minds, and win exciting prizes.",
-      participants: 500,
-      category: "Competition",
-      image: "/api/placeholder/600/400",
-      featured: true,
-      prizes: "₹50,000 Total Prize Pool",
-      registrationOpen: true
-    },
-    {
-      id: 2,
-      title: "AI & Machine Learning Workshop",
-      date: "2025-10-28",
-      time: "02:00 PM",
-      location: "Tech Lab 3, Building A",
-      description: "Learn the fundamentals of AI and ML with hands-on coding sessions and real-world projects.",
-      participants: 150,
+      title: "EasyEDA Workshop",
+      date: "2025-09-23",
+      time: "09:00 AM - 04:00 PM",
+      location: "CV Raman Block (102/103)",
+      description: "PCB Design Workshop using EasyEDA Pro. Hands-on session. Laptops compulsory. Fee ₹100 per head.",
+      participants: null,
       category: "Workshop",
       image: "/api/placeholder/600/400",
-      featured: false,
-      instructor: "Dr. Sarah Johnson",
-      registrationOpen: true
-    },
-    {
-      id: 3,
-      title: "Web Development Bootcamp",
-      date: "2025-11-05",
-      time: "10:00 AM",
-      location: "Computer Center",
-      description: "Intensive 3-day bootcamp covering React, Node.js, and modern web development practices.",
-      participants: 100,
-      category: "Bootcamp",
-      image: "/api/placeholder/600/400",
-      featured: false,
-      duration: "3 Days",
-      registrationOpen: true
+      featured: true,
+      status: "Registration Open",
+      registrationOpen: true,
+      registrationUrl: null,
+      details: [
+        "9am - 4pm",
+        "₹100 per head",
+        "Laptops compulsory",
+        "Hands-on session"
+      ]
     }
   ]
 
   // Past Events Data (for infinite scroll)
   const pastEventsData = [
     {
-      id: 101,
-      title: "DevFest 2024",
-      date: "2024-09-15",
+      id: 201,
+      title: "Figma Workshop",
+      date: "2024-08-28",
       image: "/api/placeholder/300/200",
-      participants: 800,
-      category: "Festival",
-      highlights: ["500+ Participants", "50+ Projects", "Industry Experts"]
+      participants: null,
+      category: "Workshop",
+      location: "ECE Department",
+      highlights: []
     },
     {
-      id: 102,
-      title: "Code Sprint Challenge",
-      date: "2024-08-20",
+      id: 202,
+      title: "Tech Fusion Hackathon",
+      date: "2024-11-23",
       image: "/api/placeholder/300/200",
-      participants: 200,
-      category: "Competition",
-      highlights: ["24 Hour Challenge", "Real-time Problem Solving", "Team Collaboration"]
+      participants: null,
+      category: "Hackathon",
+      location: "ECE Lab Complex",
+      highlights: []
     },
     {
-      id: 103,
-      title: "Tech Talk Series",
-      date: "2024-07-10",
+      id: 203,
+      title: "Diamante Hackathon",
+      date: "2024-08-31",
       image: "/api/placeholder/300/200",
-      participants: 300,
+      participants: null,
+      category: "Hackathon",
+      location: "REVA University",
+      highlights: []
+    },
+    {
+      id: 204,
+      title: "TechMania",
+      date: "2024-02-22",
+      image: "/api/placeholder/300/200",
+      participants: null,
+      category: "Event",
+      location: "ECE Department",
+      highlights: []
+    },
+    {
+      id: 205,
+      title: "Genesis Seminar",
+      date: "2023-11-01",
+      image: "/api/placeholder/300/200",
+      participants: null,
       category: "Seminar",
-      highlights: ["Industry Leaders", "Career Guidance", "Networking"]
+      location: "ECE Department",
+      highlights: []
     },
     {
-      id: 104,
-      title: "Open Source Contribute",
-      date: "2024-06-25",
+      id: 206,
+      title: "Aarambha Seminar",
+      date: "2023-11-01",
       image: "/api/placeholder/300/200",
-      participants: 150,
-      category: "Workshop",
-      highlights: ["GitHub Mastery", "Open Source Projects", "Community Building"]
-    },
-    {
-      id: 105,
-      title: "Design Thinking Workshop",
-      date: "2024-05-18",
-      image: "/api/placeholder/300/200",
-      participants: 120,
-      category: "Workshop",
-      highlights: ["Creative Problem Solving", "User Experience", "Prototyping"]
-    },
-    {
-      id: 106,
-      title: "Cybersecurity Summit",
-      date: "2024-04-12",
-      image: "/api/placeholder/300/200",
-      participants: 250,
-      category: "Summit",
-      highlights: ["Security Best Practices", "Ethical Hacking", "Privacy Protection"]
+      participants: null,
+      category: "Seminar",
+      location: "ECE Department",
+      about: "Aarambha was the exciting start of the club, led by coordinator Prof. Anitha Kumari. All the founding members came together with energy to build a fun tech community. The event marked the official beginning of the club, sharing goals and plans for the future.",
+      highlights: ["Inaugural Event", "Prof. Anitha Kumari", "Founding Members", "Community Launch"]
     }
   ]
 
@@ -376,19 +362,39 @@ const EventsPage = () => {
                       <MapPin className="h-4 w-4 mr-2 text-cyan" />
                       <span>{upcomingEvents[0].location}</span>
                     </div>
-                    <div className="flex items-center">
-                      <Users className="h-4 w-4 mr-2 text-cyan" />
-                      <span>{upcomingEvents[0].participants}</span>
-                    </div>
+                    {upcomingEvents[0].participants && (
+                      <div className="flex items-center">
+                        <Users className="h-4 w-4 mr-2 text-cyan" />
+                        <span>{upcomingEvents[0].participants}</span>
+                      </div>
+                    )}
                   </div>
-                  
-                  <button 
-                    onClick={() => openEventModal(upcomingEvents[0])}
-                    className="bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg self-start group/btn"
-                  >
-                    Register Now
-                    <ArrowRight className="ml-2 h-4 w-4 inline group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
+                  <div className="flex items-center gap-3">
+                    {upcomingEvents[0].registrationUrl ? (
+                      <a
+                        href={upcomingEvents[0].registrationUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg self-start group/btn"
+                      >
+                        Register Now
+                        <ArrowRight className="ml-2 h-4 w-4 inline group-hover/btn:translate-x-1 transition-transform" />
+                      </a>
+                    ) : (
+                      <button
+                        disabled
+                        className="border border-cyan/30 text-cyan px-6 py-3 rounded-xl font-semibold transition-all duration-300 self-start"
+                      >
+                        Registration Link Coming Soon
+                      </button>
+                    )}
+                    <button 
+                      onClick={() => openEventModal(upcomingEvents[0])}
+                      className="border border-cyan/30 text-cyan hover:bg-cyan/10 hover:border-cyan px-6 py-3 rounded-xl font-semibold transition-all duration-300 self-start"
+                    >
+                      View Details
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -707,6 +713,71 @@ const EventsPage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Event Details Modal */}
+      <AnimatePresence>
+        {selectedEvent && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedEvent(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 10 }}
+              transition={{ type: "spring", stiffness: 250, damping: 20 }}
+              className="bg-gradient-to-br from-navy via-slate-800 to-navy border border-cyan/30 rounded-2xl p-6 max-w-2xl w-full relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedEvent(null)}
+                className="absolute top-3 right-3 px-3 py-1 rounded-lg border border-slate/30 text-slate-300 hover:bg-slate/20"
+              >
+                Close
+              </button>
+
+              <h3 className="text-2xl font-bold text-light mb-2">{selectedEvent.title}</h3>
+              <div className="flex flex-wrap gap-4 text-sm text-light/70 mb-4">
+                <span className="inline-flex items-center"><Calendar className="h-4 w-4 mr-2 text-cyan" />{selectedEvent.date}</span>
+                {selectedEvent.time && (
+                  <span className="inline-flex items-center"><Clock className="h-4 w-4 mr-2 text-cyan" />{selectedEvent.time}</span>
+                )}
+                <span className="inline-flex items-center"><MapPin className="h-4 w-4 mr-2 text-cyan" />{selectedEvent.location}</span>
+              </div>
+
+              <p className="text-light/80 mb-4">{selectedEvent.description}</p>
+
+              {Array.isArray(selectedEvent.details) && selectedEvent.details.length > 0 && (
+                <div className="mb-4">
+                  <h4 className="text-light font-semibold mb-2">Details</h4>
+                  <ul className="list-disc list-inside text-light/80 space-y-1">
+                    {selectedEvent.details.map((d, i) => (
+                      <li key={i}>{d}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {selectedEvent.registrationUrl ? (
+                <a
+                  href={selectedEvent.registrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 text-white px-5 py-2.5 rounded-xl font-semibold transition-all"
+                >
+                  Register Now
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              ) : (
+                <span className="inline-block border border-cyan/30 text-cyan px-5 py-2.5 rounded-xl">Registration Link Coming Soon</span>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Enhanced Past Events Modal */}
       <AnimatePresence>

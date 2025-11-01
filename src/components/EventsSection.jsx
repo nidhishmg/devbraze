@@ -8,36 +8,21 @@ const EventsSection = () => {
   const events = [
     {
       id: 1,
-      title: "IoT Innovation Hackathon",
-      description: "48-hour hackathon focused on building IoT solutions for smart cities. Teams will work with sensors, microcontrollers, and cloud platforms.",
-      date: "Dec 15-17, 2024",
-      location: "Tech Lab, Campus",
-      participants: "50+ participants",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "EasyEDA Workshop",
+      description: "PCB Design Workshop using EasyEDA Pro. Hands-on session. Laptops compulsory. Fee ₹100 per head.",
+      date: "Sep 23, 2025",
+      location: "CV Raman Block (102/103)",
+      participants: undefined,
+      image: "https://images.unsplash.com/photo-1555680207-9e11e8f3c3df?auto=format&fit=crop&w=1200&q=60",
       status: "Registration Open",
-      category: "Hackathon"
-    },
-    {
-      id: 2,
-      title: "AI & Machine Learning Workshop",
-      description: "Hands-on workshop covering neural networks, deep learning, and practical ML applications using Python and TensorFlow.",
-      date: "Nov 28, 2024",
-      location: "Conference Hall A",
-      participants: "30+ participants",
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      status: "Coming Soon",
-      category: "Workshop"
-    },
-    {
-      id: 3,
-      title: "Full-Stack Development Bootcamp",
-      description: "Intensive 3-day bootcamp covering modern web development with React, Node.js, and cloud deployment strategies.",
-      date: "Jan 10-12, 2025",
-      location: "Computer Lab",
-      participants: "25+ participants",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      status: "Early Bird",
-      category: "Bootcamp"
+      category: "Workshop",
+      registrationUrl: null,
+      details: [
+        "9am - 4pm",
+        "₹100 per head",
+        "Laptops compulsory",
+        "Hands-on session"
+      ]
     }
   ]
 
@@ -213,7 +198,7 @@ const EventsSection = () => {
                           <span>{event.location}</span>
                         </div>
                       </div>
-                      
+
                       {/* Action Button */}
                       <Button 
                         variant="outline" 
