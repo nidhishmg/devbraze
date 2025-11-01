@@ -8,6 +8,9 @@ import { Card, CardContent } from '@/components/ui/card'
 const TeamSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
 
+  // Helper to build public image paths for team photos
+  const teamImage = (file) => `/images/team/${file}`
+
   const teamMembers = [
     {
       id: 1,
@@ -15,7 +18,7 @@ const TeamSection = () => {
       role: "President",
       department: "Leadership",
       bio: "Leading DevBraze's vision for innovation and driving excellence across all club activities.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("srinidhi.jpg"),
       skills: ["Leadership", "Strategic Planning", "Innovation", "Management"],
       social: {
         linkedin: "#",
@@ -29,7 +32,7 @@ const TeamSection = () => {
       role: "Tech Lead",
       department: "Technology",
       bio: "Spearheading technical initiatives and mentoring members in cutting-edge development.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("aniketh.jpg"),
       skills: ["Full-Stack", "AI/ML", "System Design", "Mentoring"],
       social: {
         linkedin: "#",
@@ -43,7 +46,7 @@ const TeamSection = () => {
       role: "Content & Design Lead",
       department: "Creative",
       bio: "Creating engaging content and beautiful designs that represent DevBraze's spirit.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("jeevitha.jpg"),
       skills: ["UI/UX Design", "Content Creation", "Branding", "Creative Strategy"],
       social: {
         linkedin: "#",
@@ -57,7 +60,7 @@ const TeamSection = () => {
       role: "Event Management Lead",
       department: "Events",
       bio: "Orchestrating memorable events that bring tech enthusiasts together for learning.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("affan.jpg"),
       skills: ["Event Planning", "Project Management", "Logistics", "Coordination"],
       social: {
         linkedin: "#",
@@ -133,7 +136,8 @@ const TeamSection = () => {
                     {/* Member Image */}
                     <div className="relative h-64 overflow-hidden">
                       <img 
-                        src={member.image} 
+                        src={member.image}
+                        onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/images/team/placeholder.svg' }}
                         alt={member.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
@@ -171,7 +175,8 @@ const TeamSection = () => {
                         {member.role}
                       </div>
                       <div className="text-light/60 text-xs mb-3">
-                        {member.department} • {member.year}
+                        {member.department}
+                        {member.year ? ` • ${member.year}` : ''}
                       </div>
                       <p className="text-light/70 text-sm mb-4 leading-relaxed">
                         {member.bio}
