@@ -33,7 +33,7 @@ const HeroChip = () => {
         <img
           src="/images/chip-hero.jpg"
           alt="Futuristic microchip with flowing blue signal lines representing DevBraze electronics and CS theme"
-          className="hidden md:block w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center"
           style={{ 
             filter: 'brightness(0.7) contrast(1.2)',
           }}
