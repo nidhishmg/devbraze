@@ -27,7 +27,7 @@ const HeroChip = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-[#0B1324] to-[#0F172A]">
+    <section className="relative min-h-screen flex items-start md:items-center overflow-hidden pt-28 md:pt-0 bg-gradient-to-b from-[#0B1324] to-[#0F172A]">
       {/* Background chip image */}
       <div className="absolute inset-0">
         <img
