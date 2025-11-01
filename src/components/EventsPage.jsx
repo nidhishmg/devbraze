@@ -237,14 +237,25 @@ const EventsPage = () => {
       
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 overflow-hidden">
-        {/* Background Video (local only) */}
+        {/* Background Image for mobile */}
+        <div className="absolute inset-0 md:hidden">
+          <img
+            src="/images/chip-hero.jpg"
+            alt="Tech circuit background"
+            className="w-full h-full object-cover object-center brightness-90"
+            loading="lazy"
+          />
+        </div>
+        {/* Background Video for md+ screens */}
         <video
-          className="absolute inset-0 w-full h-full object-cover brightness-90"
+          className="absolute inset-0 w-full h-full object-cover brightness-90 hidden md:block"
           src="/videos/circuit.mp4"
           autoPlay
           loop
           muted
           playsInline
+          preload="none"
+          aria-hidden="true"
         />
         {/* Soft gradient overlays for readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/30 to-navy/80" />
