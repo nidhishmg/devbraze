@@ -15,6 +15,11 @@ import AboutUsPage from './components/AboutUsPage'
 import EventsPage from './components/EventsPage'
 import TeamPage from './components/TeamPage'
 import ScrollToTop from './components/ScrollToTop'
+import RegisterPage from './components/RegisterPage'
+import AdminEventPage from './components/AdminEventPage'
+import AdminEventsList from './components/AdminEventsList'
+import AdminLogin from './components/AdminLogin'
+import RequireAdmin from './components/RequireAdmin'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -105,6 +110,10 @@ function App() {
               <Route path="/about" element={<AboutUsPage />} />
               <Route path="/events" element={<EventsPage />} />
               <Route path="/team" element={<TeamPage />} />
+              <Route path="/register/:slug" element={<RegisterPage />} />
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin/events" element={<RequireAdmin><AdminEventsList /></RequireAdmin>} />
+              <Route path="/admin/events/:slug" element={<RequireAdmin><AdminEventPage /></RequireAdmin>} />
             </Routes>
           </Router>
         )}

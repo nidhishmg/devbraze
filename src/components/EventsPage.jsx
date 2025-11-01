@@ -23,6 +23,7 @@ import {
   Gift
 } from 'lucide-react'
 import Navbar from './Navbar'
+import { upcomingEvents as sharedUpcomingEvents } from '@/lib/events'
 
 const EventsPage = () => {
   const [showPastEvents, setShowPastEvents] = useState(false)
@@ -75,30 +76,13 @@ const EventsPage = () => {
   }
 
   // Upcoming Events Data
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: "EasyEDA Workshop",
-      slug: "easyeda-workshop-sep-23-2025",
-      date: "2025-09-23",
-      time: "09:00 AM - 04:00 PM",
-      location: "CV Raman Block (102/103)",
-      description: "PCB Design Workshop using EasyEDA Pro. Hands-on session. Laptops compulsory. Fee ₹100 per head.",
-      participants: null,
-      category: "Workshop",
-      image: "/api/placeholder/600/400",
-      featured: true,
-      status: "Registration Open",
-      registrationOpen: true,
-      registrationUrl: null,
-      details: [
-        "9am - 4pm",
-        "₹100 per head",
-        "Laptops compulsory",
-        "Hands-on session"
-      ]
-    }
-  ]
+  const upcomingEvents = sharedUpcomingEvents.map(e => ({
+    ...e,
+    // Normalize fields this page expects
+    date: e.date || '',
+    time: e.time || '09:00 AM - 04:00 PM',
+    registrationOpen: e.status === 'Registration Open'
+  }))
 
   // Past Events Data (for infinite scroll)
   const pastEventsData = [
@@ -377,6 +361,12 @@ const EventsPage = () => {
                     >
                       Register Now
                       <ArrowRight className="ml-2 h-4 w-4 inline group-hover/btn:translate-x-1 transition-transform" />
+                    </a>
+                    <a
+                      href={`/admin/events/${upcomingEvents[0].slug}`}
+                      className="border border-cyan/30 text-cyan hover:bg-cyan/10 hover:border-cyan px-6 py-3 rounded-xl font-semibold transition-all duration-300 self-start"
+                    >
+                      Admin
                     </a>
                     <button 
                       onClick={() => openEventModal(upcomingEvents[0])}

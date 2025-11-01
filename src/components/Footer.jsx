@@ -20,7 +20,7 @@ const Footer = () => {
     ],
     'Connect': [
       { name: 'Discord Server', href: '#' },
-      { name: 'Slack Workspace', href: '#' },
+      { name: 'Slack Workspace', href: '/admin/login' },
       { name: 'Newsletter', href: '#' },
       { name: 'Alumni Network', href: '#' },
       { name: 'Mentorship Program', href: '#' }
@@ -74,7 +74,7 @@ const Footer = () => {
 
                 <p className="text-light/70 mb-6 leading-relaxed">
                   Igniting innovation through electronics and code. Join our community 
-                  of creators, tinkerers, and developers shaping tomorrow's technology.
+                  of creators, tinkerers, and developers shaping tomorrow's technology.                
                 </p>
 
                 {/* Contact Info */}
@@ -133,6 +133,8 @@ const Footer = () => {
             >
               © 2024 DevBraze. All rights reserved. Made with ❤️ by the DevBraze team.
             </motion.div>
+
+
 
             {/* Social Links */}
             <motion.div

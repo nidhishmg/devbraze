@@ -3,30 +3,11 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Calendar, Users, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card } from '@/components/ui/card'
+import { upcomingEvents } from '@/lib/events'
 
 const EventsSection = () => {
-  const events = [
-    {
-      id: 1,
-      title: "EasyEDA Workshop",
-      slug: "easyeda-workshop-sep-23-2025",
-      description: "PCB Design Workshop using EasyEDA Pro. Hands-on session. Laptops compulsory. Fee ₹100 per head.",
-      date: "Sep 23, 2025",
-      location: "CV Raman Block (102/103)",
-      participants: undefined,
-      image: "https://images.unsplash.com/photo-1555680207-9e11e8f3c3df?auto=format&fit=crop&w=1200&q=60",
-      status: "Registration Open",
-      category: "Workshop",
-      registrationUrl: null,
-      details: [
-        "9am - 4pm",
-        "₹100 per head",
-        "Laptops compulsory",
-        "Hands-on session"
-      ]
-    }
-  ]
+  const events = upcomingEvents
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -84,7 +65,7 @@ const EventsSection = () => {
                 {/* Event Image */}
                 <div className="relative h-64 md:h-80 overflow-hidden">
                   <img 
-                    src={events[0].image} 
+                    src={events[0].image}
                     alt={events[0].title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
@@ -142,6 +123,7 @@ const EventsSection = () => {
                       Register Now
                     </Button>
                   </Link>
+                  <Link to={`/admin/events/${events[0].slug}`} className="ml-3 inline-block text-cyan text-sm hover:text-blue-400">Admin</Link>
                 </div>
               </div>
             </Card>
@@ -164,7 +146,7 @@ const EventsSection = () => {
                     {/* Event Image Header */}
                     <div className="relative h-40 overflow-hidden">
                       <img 
-                        src={event.image} 
+                        src={event.image}
                         alt={event.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />

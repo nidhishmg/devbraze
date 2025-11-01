@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import fs from 'fs'
@@ -5,6 +6,8 @@ import path from 'path'
 import morgan from 'morgan'
 import { fileURLToPath } from 'url'
 import XLSX from 'xlsx'
+import { createClient } from '@supabase/supabase-js'
+import multer from 'multer'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -12,6 +15,14 @@ const __dirname = path.dirname(__filename)
 const app = express()
 const PORT = process.env.PORT || 4000
 const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data')
+const ADMIN_KEY = process.env.ADMIN_KEY || ''
+const STORAGE = process.env.STORAGE || 'filesystem' // filesystem | supabase | both
+const SUPABASE_URL = process.env.SUPABASE_URL || ''
+const SUPABASE_KEY = process.env.SUPABASE_KEY || ''
+const SUPABASE_TABLE = process.env.SUPABASE_TABLE || 'registrations'
+const supabase = (STORAGE.includes('supabase') && SUPABASE_URL && SUPABASE_KEY)
+  ? createClient(SUPABASE_URL, SUPABASE_KEY)
+  : null
 
 app.use(morgan('dev'))
 app.use(express.json())
@@ -56,27 +67,84 @@ const writeXlsx = (xlsxPath, headers, row) => {
   XLSX.writeFile(wb, xlsxPath)
 }
 
-app.post('/api/events/:slug/register', (req, res) => {
+const writeSupabase = async (slug, record) => {
+  if (!supabase) return
+  const payload = { ...record, slug }
+  // Ensure extras is JSON
+  if (typeof payload.extras === 'string') {
+    try { payload.extras = JSON.parse(payload.extras) } catch { /* keep string */ }
+  }
+  await supabase.from(SUPABASE_TABLE).insert(payload)
+}
+
+// Multer storage configured per-event based on slug
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: (req, _file, cb) => {
+      const slug = sanitize(req.params.slug)
+      const uploadDir = path.join(DATA_DIR, slug, 'uploads')
+      fs.mkdirSync(uploadDir, { recursive: true })
+      cb(null, uploadDir)
+    },
+    filename: (_req, file, cb) => {
+      const ts = Date.now()
+      const safe = String(file.originalname || 'upload').replace(/[^a-zA-Z0-9._-]/g, '_')
+      cb(null, `${ts}-${safe}`)
+    }
+  })
+})
+
+app.post('/api/events/:slug/register', upload.single('paymentScreenshot'), async (req, res) => {
   try {
     const slug = sanitize(req.params.slug)
-    const { name, email, phone, branch, year, notes } = req.body || {}
+    const { name, email, phone, branch, year, notes, website, extras, transactionId } = req.body || {}
 
     if (!name || !email) {
       return res.status(400).json({ ok: false, error: 'name and email are required' })
+    }
+
+    // Honeypot spam trap: if filled, pretend success without saving
+    if (website) {
+      return res.json({ ok: true, slug, saved: true })
+    }
+
+    // Require payment verification details
+    if (!transactionId) {
+      return res.status(400).json({ ok: false, error: 'transactionId is required' })
+    }
+    if (!req.file) {
+      return res.status(400).json({ ok: false, error: 'paymentScreenshot is required' })
     }
 
     const eventDir = path.join(DATA_DIR, slug)
     fs.mkdirSync(eventDir, { recursive: true })
 
     const timestamp = new Date().toISOString()
-    const record = { timestamp, name, email, phone, branch, year, notes }
-    const headers = ['timestamp', 'name', 'email', 'phone', 'branch', 'year', 'notes']
+    const screenshotFilename = path.basename(req.file.path)
+    const record = {
+      timestamp,
+      name,
+      email,
+      phone,
+      branch,
+      year,
+      notes,
+      transactionId,
+      paymentScreenshot: screenshotFilename,
+      extras: extras ? (typeof extras === 'string' ? extras : JSON.stringify(extras)) : ''
+    }
+    const headers = ['timestamp', 'name', 'email', 'phone', 'branch', 'year', 'notes', 'transactionId', 'paymentScreenshot', 'extras']
 
     const csvPath = path.join(eventDir, 'registrations.csv')
     const xlsxPath = path.join(eventDir, 'registrations.xlsx')
 
-    writeCsv(csvPath, headers, record)
-    writeXlsx(xlsxPath, headers, record)
+    if (STORAGE === 'filesystem' || STORAGE === 'both') {
+      writeCsv(csvPath, headers, record)
+      writeXlsx(xlsxPath, headers, record)
+    }
+    if (STORAGE === 'supabase' || STORAGE === 'both') {
+      await writeSupabase(slug, record)
+    }
 
     return res.json({ ok: true, slug, saved: true })
   } catch (err) {
@@ -86,6 +154,10 @@ app.post('/api/events/:slug/register', (req, res) => {
 })
 
 app.get('/api/events/:slug/export.csv', (req, res) => {
+  if (ADMIN_KEY) {
+    const key = req.query.adminKey || req.headers['x-admin-key']
+    if (key !== ADMIN_KEY) return res.status(401).send('Unauthorized')
+  }
   const slug = sanitize(req.params.slug)
   const csvPath = path.join(DATA_DIR, slug, 'registrations.csv')
   if (!fs.existsSync(csvPath)) return res.status(404).send('No registrations')
@@ -95,6 +167,10 @@ app.get('/api/events/:slug/export.csv', (req, res) => {
 })
 
 app.get('/api/events/:slug/export.xlsx', (req, res) => {
+  if (ADMIN_KEY) {
+    const key = req.query.adminKey || req.headers['x-admin-key']
+    if (key !== ADMIN_KEY) return res.status(401).send('Unauthorized')
+  }
   const slug = sanitize(req.params.slug)
   const xlsxPath = path.join(DATA_DIR, slug, 'registrations.xlsx')
   if (!fs.existsSync(xlsxPath)) return res.status(404).send('No registrations')
