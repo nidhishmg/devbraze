@@ -8,6 +8,9 @@ import Navbar from './Navbar'
 const TeamPage = () => {
   const [activeCategory, setActiveCategory] = useState('leaders')
 
+  // Helper to build public image paths for team photos
+  const teamImage = (file) => `/images/team/${file}`
+
   const facultyCoordinators = [
     {
       id: 1,
@@ -15,7 +18,7 @@ const TeamPage = () => {
       role: "Assistant Professor",
       department: "Faculty Coordinator",
       bio: "Guiding DevBraze's academic excellence and providing mentorship for innovative student projects.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("veena-kn.jpg"),
       social: {
         linkedin: "#",
         instagram: "#",
@@ -28,7 +31,7 @@ const TeamPage = () => {
       role: "Director SC Admin",
       department: "Faculty Coordinator", 
       bio: "Overseeing administrative operations and ensuring DevBraze's alignment with institutional goals.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("sudharshan-kn.jpg"),
       social: {
         linkedin: "#",
         instagram: "#",
@@ -44,7 +47,7 @@ const TeamPage = () => {
       role: "President",
       department: "Leadership Team",
       bio: "Leading DevBraze's vision and driving innovation across all club activities and projects.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("srinidhi.jpg"),
       skills: ["Leadership", "Strategic Planning", "Project Management", "Innovation"],
       social: {
         linkedin: "#",
@@ -58,7 +61,7 @@ const TeamPage = () => {
       role: "Vice President",
       department: "Leadership Team",
       bio: "Supporting organizational operations and coordinating between different teams for seamless execution.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("vedhashree.jpg"),
       skills: ["Operations", "Team Coordination", "Event Planning", "Communication"],
       social: {
         linkedin: "#",
@@ -72,7 +75,7 @@ const TeamPage = () => {
       role: "Treasurer",
       department: "Finance Team",
       bio: "Managing club finances and ensuring transparent handling of resources for all DevBraze activities.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("chirag-treasurer.jpg"),
       skills: ["Financial Management", "Budgeting", "Resource Planning", "Analytics"],
       social: {
         linkedin: "#",
@@ -86,7 +89,7 @@ const TeamPage = () => {
       role: "Tech Lead",
       department: "Technical Team",
       bio: "Spearheading technical initiatives and mentoring members in cutting-edge technology development.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("aniketh.jpg"),
       skills: ["Full-Stack Development", "AI/ML", "System Architecture", "Mentoring"],
       social: {
         linkedin: "#",
@@ -100,7 +103,7 @@ const TeamPage = () => {
       role: "Content and Design Lead",
       department: "Creative Team",
       bio: "Creating engaging content and beautiful designs that represent DevBraze's innovative spirit.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("jeevitha.jpg"),
       skills: ["UI/UX Design", "Content Creation", "Brand Design", "Creative Strategy"],
       social: {
         linkedin: "#",
@@ -114,7 +117,7 @@ const TeamPage = () => {
       role: "Social Media Lead",
       department: "Marketing Team",
       bio: "Building DevBraze's online presence and engaging with the tech community across platforms.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("chirag-social.jpg"),
       skills: ["Social Media Strategy", "Digital Marketing", "Community Engagement", "Analytics"],
       social: {
         linkedin: "#",
@@ -128,7 +131,7 @@ const TeamPage = () => {
       role: "Event Management Lead",
       department: "Events Team",
       bio: "Orchestrating memorable events that bring together tech enthusiasts for learning and networking.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("affan.jpg"),
       skills: ["Event Planning", "Logistics", "Vendor Management", "Team Coordination"],
       social: {
         linkedin: "#",
@@ -142,7 +145,7 @@ const TeamPage = () => {
       role: "Marketing Lead",
       department: "Marketing Team",
       bio: "Developing marketing strategies to promote DevBraze's initiatives and attract new members.",
-      image: "/api/placeholder/300/400",
+  image: teamImage("vina.jpg"),
       skills: ["Marketing Strategy", "Brand Promotion", "Campaigns", "Partnership Development"],
       social: {
         linkedin: "#",
@@ -296,6 +299,7 @@ const TeamPage = () => {
                       <div className="relative h-64 overflow-hidden">
                         <img 
                           src={member.image} 
+                          onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/images/team/placeholder.svg' }}
                           alt={member.name}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
