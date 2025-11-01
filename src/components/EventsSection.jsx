@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Calendar, Users, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -9,6 +10,7 @@ const EventsSection = () => {
     {
       id: 1,
       title: "EasyEDA Workshop",
+      slug: "easyeda-workshop-sep-23-2025",
       description: "PCB Design Workshop using EasyEDA Pro. Hands-on session. Laptops compulsory. Fee ₹100 per head.",
       date: "Sep 23, 2025",
       location: "CV Raman Block (102/103)",
@@ -127,15 +129,19 @@ const EventsSection = () => {
                       <MapPin className="h-4 w-4 mr-2 text-cyan" />
                       <span>{events[0].location}</span>
                     </div>
-                    <div className="flex items-center">
-                      <Users className="h-4 w-4 mr-2 text-cyan" />
-                      <span>{events[0].participants}</span>
-                    </div>
+                    {events[0].participants && (
+                      <div className="flex items-center">
+                        <Users className="h-4 w-4 mr-2 text-cyan" />
+                        <span>{events[0].participants}</span>
+                      </div>
+                    )}
                   </div>
                   
-                  <Button className="bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 self-start group/btn">
-                    Register Now
-                  </Button>
+                  <Link to={`/register/${events[0].slug}`}>
+                    <Button className="bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 self-start group/btn">
+                      Register Now
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </Card>

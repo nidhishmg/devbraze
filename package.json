@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:server": "node server/index.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm --prefix server run dev\"",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -32,6 +34,7 @@
     "postcss": "^8.4.27",
     "tailwindcss": "^3.3.3",
     "tailwindcss-animate": "^1.0.7",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "concurrently": "^9.0.1"
   }
 }

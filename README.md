@@ -207,3 +207,40 @@ Built with ❤️ by the DevBraze team using:
 ---
 
 **Ready to ignite innovation? Join DevBraze today!** 🔥
+
+---
+
+## 📋 Event Registration Backend (New)
+
+This project now includes a simple backend to collect registrations and save them per-event into CSV and XLSX files.
+
+### How it works
+- Frontend route: `/register/:slug` renders a form; submits to the backend.
+- Backend endpoint: `POST /api/events/:slug/register`
+- Files written to: `server/data/<slug>/registrations.csv` and `registrations.xlsx`
+
+### Run locally
+1. Install web deps (once):
+   ```bash
+   npm install
+   ```
+2. Install server deps (once):
+   ```bash
+   cd server
+   npm install
+   ```
+3. Start both (from project root):
+   ```bash
+   npm run dev:all
+   ```
+   - Web: http://localhost:5173
+   - API: http://localhost:4000 (configurable via `VITE_API_URL`)
+
+If you need to point the web app to a remote API, create `.env`:
+```bash
+cp .env.example .env
+# then edit VITE_API_URL
+```
+
+### Production note
+Writing files to disk won’t persist on serverless platforms (like Vercel functions). Deploy the backend to a host with persistent storage (e.g., Railway/Render/Fly/VM) or change the backend to save to a managed store (e.g., PostgreSQL, Supabase, or S3/Drive). The frontend already reads `VITE_API_URL` so you can point it to your hosted API.

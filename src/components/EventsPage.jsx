@@ -79,6 +79,7 @@ const EventsPage = () => {
     {
       id: 1,
       title: "EasyEDA Workshop",
+      slug: "easyeda-workshop-sep-23-2025",
       date: "2025-09-23",
       time: "09:00 AM - 04:00 PM",
       location: "CV Raman Block (102/103)",
@@ -370,24 +371,13 @@ const EventsPage = () => {
                     )}
                   </div>
                   <div className="flex items-center gap-3">
-                    {upcomingEvents[0].registrationUrl ? (
-                      <a
-                        href={upcomingEvents[0].registrationUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg self-start group/btn"
-                      >
-                        Register Now
-                        <ArrowRight className="ml-2 h-4 w-4 inline group-hover/btn:translate-x-1 transition-transform" />
-                      </a>
-                    ) : (
-                      <button
-                        disabled
-                        className="border border-cyan/30 text-cyan px-6 py-3 rounded-xl font-semibold transition-all duration-300 self-start"
-                      >
-                        Registration Link Coming Soon
-                      </button>
-                    )}
+                    <a
+                      href={`/register/${upcomingEvents[0].slug}`}
+                      className="bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg self-start group/btn"
+                    >
+                      Register Now
+                      <ArrowRight className="ml-2 h-4 w-4 inline group-hover/btn:translate-x-1 transition-transform" />
+                    </a>
                     <button 
                       onClick={() => openEventModal(upcomingEvents[0])}
                       className="border border-cyan/30 text-cyan hover:bg-cyan/10 hover:border-cyan px-6 py-3 rounded-xl font-semibold transition-all duration-300 self-start"
