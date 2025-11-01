@@ -405,7 +405,7 @@ const AboutUsPage = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="absolute inset-0 flex items-center justify-center z-20"
+                className="absolute inset-0 hidden md:flex items-center justify-center z-20"
               >
                 <div className="relative">
                   {/* Main Processor Package */}
