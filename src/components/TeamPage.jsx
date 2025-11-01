@@ -305,10 +305,7 @@ const TeamPage = () => {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent"></div>
                         
-                        {/* Role Badge */}
-                        <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-navy/80 text-cyan text-xs font-medium border border-cyan/30 backdrop-blur-sm">
-                          {member.department}
-                        </div>
+                        {/* Removed role/department badge per request */}
                         
                         {/* Social Links */}
                         <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
