@@ -372,12 +372,6 @@ const EventsPage = () => {
                       Register Now
                       <ArrowRight className="ml-2 h-4 w-4 inline group-hover/btn:translate-x-1 transition-transform" />
                     </a>
-                    <a
-                      href={`/admin/events/${upcomingEvents[0].slug}`}
-                      className="border border-cyan/30 text-cyan hover:bg-cyan/10 hover:border-cyan px-6 py-3 rounded-xl font-semibold transition-all duration-300 self-start"
-                    >
-                      Admin
-                    </a>
                     <button 
                       onClick={() => openEventModal(upcomingEvents[0])}
                       className="border border-cyan/30 text-cyan hover:bg-cyan/10 hover:border-cyan px-6 py-3 rounded-xl font-semibold transition-all duration-300 self-start"
