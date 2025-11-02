@@ -37,11 +37,22 @@ const JoinPage = () => {
     if (bot) return
     try {
       setSubmitting(true)
-      const payload = { ...form }
+      // Send as FormData to avoid CORS preflight on Apps Script
+      const fd = new FormData()
+      fd.append('name', form.name)
+      fd.append('email', form.email)
+      fd.append('phone', form.phone)
+      fd.append('year', form.year)
+      fd.append('branch', form.branch)
+      fd.append('skills', form.skills)
+      fd.append('experience', form.experience)
+      fd.append('motivation', form.motivation)
+      // Flatten interests array to a readable comma-separated string
+      fd.append('interests', (form.interests || []).join(', '))
+
       const res = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: fd
       })
       // Apps Script web apps usually allow CORS and return 200
       if (res.ok) {
@@ -50,10 +61,11 @@ const JoinPage = () => {
         setForm({ name: '', email: '', phone: '', year: '', branch: '', interests: [], skills: '', experience: '', motivation: '' })
         navigate('/thanks')
       } else {
-        alert('Submission failed. Please try again later.')
+        const text = await res.text().catch(() => '')
+        alert('Submission failed. Please try again later.' + (text ? `\n\nDetails: ${text}` : ''))
       }
     } catch (err) {
-      alert('Network error. Please check your connection and try again.')
+      alert('Network error. Please check the Join endpoint and try again. If this persists, ensure the URL ends with /exec and access is set to "Anyone".')
     } finally {
       setSubmitting(false)
     }
