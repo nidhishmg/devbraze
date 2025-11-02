@@ -214,10 +214,11 @@ const EventsSection = () => {
           className="text-center"
         >
           <Button 
+            asChild
             size="lg"
             className="px-8 py-3 bg-gradient-to-r from-cyan to-blue-500 hover:from-cyan/90 hover:to-blue-500/90 hover:scale-105 transition-all duration-300"
           >
-            View All Events
+            <Link to="/events">View All Events</Link>
           </Button>
         </motion.div>
       </div>
