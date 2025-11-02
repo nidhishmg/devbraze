@@ -12,13 +12,14 @@ const TeamSection = () => {
   const teamImage = (file) => `/images/team/${file}`
 
   const teamMembers = [
+    // Ensure home page first slide shows President, Vice President, and Design Lead
     {
       id: 1,
       name: "Srinidhi",
       role: "President",
       department: "Leadership",
       bio: "Leading DevBraze's vision for innovation and driving excellence across all club activities.",
-  image: teamImage("srinidhi.jpg"),
+      image: teamImage("srinidhi.jpg"),
       skills: ["Leadership", "Strategic Planning", "Innovation", "Management"],
       social: {
         linkedin: "https://www.linkedin.com/in/srinidhi-m-839290261",
@@ -27,15 +28,14 @@ const TeamSection = () => {
     },
     {
       id: 2,
-      name: "Aniketh",
-      role: "Tech Lead",
-      department: "Technology",
-      bio: "Spearheading technical initiatives and mentoring members in cutting-edge development.",
-  image: teamImage("aniketh.jpg"),
-      skills: ["Full-Stack", "AI/ML", "System Design", "Mentoring"],
+      name: "Vedhashree",
+      role: "Vice President",
+      department: "Leadership",
+      bio: "Supporting operations and coordinating teams for seamless club execution.",
+      image: teamImage("vedhashree.jpg"),
+      skills: ["Operations", "Team Coordination", "Event Planning", "Communication"],
       social: {
-        linkedin: "https://www.linkedin.com/in/aniketh-bhosale-849480250/",
-        instagram: "https://www.instagram.com/aniketh_bhosale/"
+        linkedin: "https://www.linkedin.com/in/vedhashri-magesh-701878309"
       }
     },
     {
@@ -44,7 +44,7 @@ const TeamSection = () => {
       role: "Content & Design Lead",
       department: "Creative",
       bio: "Creating engaging content and beautiful designs that represent DevBraze's spirit.",
-  image: teamImage("jeevitha.jpg"),
+      image: teamImage("jeevitha.jpg"),
       skills: ["UI/UX Design", "Content Creation", "Branding", "Creative Strategy"],
       social: {
         linkedin: "https://www.linkedin.com/in/jeevitha-h-gowda-17a977203"
@@ -52,11 +52,24 @@ const TeamSection = () => {
     },
     {
       id: 4,
+      name: "Aniketh",
+      role: "Tech Lead",
+      department: "Technology",
+      bio: "Spearheading technical initiatives and mentoring members in cutting-edge development.",
+      image: teamImage("aniketh.jpg"),
+      skills: ["Full-Stack", "AI/ML", "System Design", "Mentoring"],
+      social: {
+        linkedin: "https://www.linkedin.com/in/aniketh-bhosale-849480250/",
+        instagram: "https://www.instagram.com/aniketh_bhosale/"
+      }
+    },
+    {
+      id: 5,
       name: "Affan",
       role: "Event Management Lead",
       department: "Events",
       bio: "Orchestrating memorable events that bring tech enthusiasts together for learning.",
-  image: teamImage("affan.jpg"),
+      image: teamImage("affan.jpg"),
       skills: ["Event Planning", "Project Management", "Logistics", "Coordination"],
       social: {
         linkedin: "https://www.linkedin.com/in/mohd-affaan-sharif-2386a0291"
