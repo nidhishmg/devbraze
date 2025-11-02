@@ -18,6 +18,7 @@ import {
   Share2
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Link } from 'react-router-dom'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Navbar from './Navbar'
 import Footer from './Footer'
@@ -524,11 +525,13 @@ const AboutUsPage = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
+                asChild
                 size="lg"
                 className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-cyan via-blue-500 to-blue-600 hover:from-cyan/90 hover:via-blue-500/90 hover:to-blue-600/90 animate-glow-border hover:scale-105 transition-all duration-300 relative overflow-hidden group"
               >
-                <span className="relative z-10">Join DevBraze</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <Link to="/join">
+                  <span className="relative z-10">Join DevBraze</span>
+                </Link>
               </Button>
               <Button
                 variant="outline"

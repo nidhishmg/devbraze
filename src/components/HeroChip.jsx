@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const HeroChip = () => {
   const containerVariants = {
@@ -83,17 +84,19 @@ const HeroChip = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
             <Button
+              asChild
               size="lg"
               className="px-8 py-3 text-lg font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white hover:scale-105 transition-all duration-300"
             >
-              Join DevBraze
+              <Link to="/join">Join DevBraze</Link>
             </Button>
             <Button
+              asChild
               variant="outline"
               size="lg"
               className="px-8 py-3 text-lg font-semibold border-2 border-cyan-400/60 text-slate-100 hover:bg-cyan-400/10 hover:scale-105 transition-all duration-300 backdrop-blur-sm"
             >
-              Explore Events
+              <Link to="/events">Explore Events</Link>
             </Button>
           </motion.div>
 

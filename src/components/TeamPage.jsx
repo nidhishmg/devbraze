@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Users, Linkedin, Instagram, ArrowLeft, Star, Award, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Link } from 'react-router-dom'
 import { Card, CardContent } from '@/components/ui/card'
 import Navbar from './Navbar'
 
@@ -368,11 +369,11 @@ const TeamPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
+                asChild
                 size="lg"
                 className="px-8 py-3 text-lg font-semibold bg-gradient-to-r from-cyan via-blue-500 to-blue-600 hover:from-cyan/90 hover:via-blue-500/90 hover:to-blue-600/90 animate-glow-border hover:scale-105 transition-all duration-300"
               >
-                Join DevBraze
-                <ArrowLeft className="ml-2 h-5 w-5 rotate-180" />
+                <Link to="/join">Join DevBraze<ArrowLeft className="ml-2 h-5 w-5 rotate-180" /></Link>
               </Button>
               <Button
                 variant="outline"

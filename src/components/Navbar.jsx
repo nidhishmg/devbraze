@@ -93,11 +93,12 @@ const Navbar = () => {
               </motion.div>
             ))}
             <Button 
+              asChild
               variant="outline" 
               size="sm"
               className="ml-4"
             >
-              Join Club
+              <Link to="/join">Join Club</Link>
             </Button>
           </div>
 
@@ -149,8 +150,8 @@ const Navbar = () => {
                 </div>
               ))}
               <div className="px-3 py-2">
-                <Button variant="outline" size="sm" className="w-full">
-                  Join Club
+                <Button asChild variant="outline" size="sm" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link to="/join">Join Club</Link>
                 </Button>
               </div>
             </div>
