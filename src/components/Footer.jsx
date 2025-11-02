@@ -13,13 +13,6 @@ const Footer = () => {
     ],
     'Resources': [
       { name: 'Materials', href: '/resources' }
-    ],
-    'Connect': [
-      { name: 'Discord Server', href: '#' },
-      { name: 'Slack Workspace', href: '#' },
-      { name: 'Newsletter', href: '#' },
-      { name: 'Alumni Network', href: '#' },
-      { name: 'Mentorship Program', href: '#' }
     ]
   }
 
@@ -86,7 +79,7 @@ const Footer = () => {
 
             {/* Links Sections */}
             <div className="lg:col-span-3">
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-2 gap-8">
                 {Object.entries(footerLinks).map(([category, links], index) => (
                   <motion.div
                     key={category}
