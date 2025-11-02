@@ -4,6 +4,7 @@ import { Users, CheckCircle2, ShieldCheck, Network, BookOpen, Phone, Mail, Gradu
 import Navbar from './Navbar'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { useNavigate } from 'react-router-dom'
 
 const interestOptions = [
   'Web Development', 'Mobile Development', 'AI/Machine Learning', 'Cybersecurity',
@@ -17,6 +18,7 @@ const JoinPage = () => {
   })
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const navigate = useNavigate()
 
   const toggleInterest = (opt) => {
     setForm((f) => {
@@ -30,6 +32,9 @@ const JoinPage = () => {
   const onSubmit = async (e) => {
     e.preventDefault()
     const endpoint = import.meta.env.VITE_JOIN_WEBAPP_URL || 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec'
+    // Honeypot check: if filled, silently drop
+    const bot = e.currentTarget.botcheck?.value
+    if (bot) return
     try {
       setSubmitting(true)
       const payload = { ...form }
@@ -41,9 +46,9 @@ const JoinPage = () => {
       // Apps Script web apps usually allow CORS and return 200
       if (res.ok) {
         setSubmitted(true)
-        alert('Application submitted! We\'ll get back to you soon.')
-        // Optional: reset
+        // Reset form and navigate to Thank You page
         setForm({ name: '', email: '', phone: '', year: '', branch: '', interests: [], skills: '', experience: '', motivation: '' })
+        navigate('/thanks')
       } else {
         alert('Submission failed. Please try again later.')
       }

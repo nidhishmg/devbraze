@@ -16,6 +16,7 @@ import EventsPage from './components/EventsPage'
 import TeamPage from './components/TeamPage'
 import ScrollToTop from './components/ScrollToTop'
 import JoinPage from './components/JoinPage'
+import ThanksPage from './components/ThanksPage'
 // Registration and Admin routes removed per request
 
 function App() {
@@ -108,6 +109,7 @@ function App() {
               <Route path="/events" element={<EventsPage />} />
               <Route path="/team" element={<TeamPage />} />
               <Route path="/join" element={<JoinPage />} />
+              <Route path="/thanks" element={<ThanksPage />} />
               {/* Registration/Admin routes removed */}
             </Routes>
           </Router>
