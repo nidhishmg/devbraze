@@ -15,6 +15,8 @@ const JoinPage = () => {
     name: '', email: '', phone: '', year: '', branch: '',
     interests: [], skills: '', experience: '', motivation: ''
   })
+  const [submitting, setSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   const toggleInterest = (opt) => {
     setForm((f) => {
@@ -25,10 +27,31 @@ const JoinPage = () => {
 
   const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
-    // No backend: just show a friendly confirmation
-    alert('Thanks for applying! We\'ll review your application and get back to you soon.')
+    const endpoint = import.meta.env.VITE_JOIN_WEBAPP_URL || 'https://script.google.com/macros/s/REPLACE_WITH_YOUR_DEPLOYMENT_ID/exec'
+    try {
+      setSubmitting(true)
+      const payload = { ...form }
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      // Apps Script web apps usually allow CORS and return 200
+      if (res.ok) {
+        setSubmitted(true)
+        alert('Application submitted! We\'ll get back to you soon.')
+        // Optional: reset
+        setForm({ name: '', email: '', phone: '', year: '', branch: '', interests: [], skills: '', experience: '', motivation: '' })
+      } else {
+        alert('Submission failed. Please try again later.')
+      }
+    } catch (err) {
+      alert('Network error. Please check your connection and try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -125,6 +148,8 @@ const JoinPage = () => {
           <div>
             <Card className="bg-slate/20 border-slate/20">
               <form onSubmit={onSubmit} className="p-6 space-y-4">
+                {/* Honeypot for bots */}
+                <input type="text" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm text-light/70">Full Name *</label>
@@ -190,8 +215,10 @@ const JoinPage = () => {
                 </div>
 
                 <div className="pt-2">
-                  <Button type="submit" className="w-full">Submit Application</Button>
-                  <p className="text-xs text-light/60 mt-2">Note: This is a preview form. Submission stores nothing yet.</p>
+                  <Button type="submit" className="w-full" disabled={submitting} aria-busy={submitting}>
+                    {submitting ? 'Submitting...' : (submitted ? 'Submitted ✓' : 'Submit Application')}
+                  </Button>
+                  <p className="text-xs text-light/60 mt-2">Your data will be sent securely to our Google Sheet via Google Apps Script.</p>
                 </div>
               </form>
             </Card>
