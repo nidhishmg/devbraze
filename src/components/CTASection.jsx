@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Users } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Link } from 'react-router-dom'
 
 const CTASection = () => {
   return (
@@ -89,17 +90,19 @@ const CTASection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <Button
+              asChild
               size="lg"
               className="px-8 py-4 text-lg font-semibold glow-effect hover:scale-105 transition-all duration-300 group"
             >
-              Become a Member
+              <Link to="/join">Become a Member</Link>
             </Button>
             <Button
+              asChild
               variant="outline"
               size="lg"
               className="px-8 py-4 text-lg font-semibold hover:scale-105 transition-all duration-300"
             >
-              Learn More About Us
+              <Link to="/about">Learn More About Us</Link>
             </Button>
           </motion.div>
 
