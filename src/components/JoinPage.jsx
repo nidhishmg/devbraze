@@ -37,22 +37,22 @@ const JoinPage = () => {
     if (bot) return
     try {
       setSubmitting(true)
-      // Send as FormData to avoid CORS preflight on Apps Script
-      const fd = new FormData()
-      fd.append('name', form.name)
-      fd.append('email', form.email)
-      fd.append('phone', form.phone)
-      fd.append('year', form.year)
-      fd.append('branch', form.branch)
-      fd.append('skills', form.skills)
-      fd.append('experience', form.experience)
-      fd.append('motivation', form.motivation)
-      // Flatten interests array to a readable comma-separated string
-      fd.append('interests', (form.interests || []).join(', '))
+      // Send as application/x-www-form-urlencoded (simple request, no preflight)
+      const params = new URLSearchParams()
+      params.append('name', form.name)
+      params.append('email', form.email)
+      params.append('phone', form.phone)
+      params.append('year', form.year)
+      params.append('branch', form.branch)
+      params.append('skills', form.skills)
+      params.append('experience', form.experience)
+      params.append('motivation', form.motivation)
+      params.append('interests', (form.interests || []).join(', '))
 
       const res = await fetch(endpoint, {
         method: 'POST',
-        body: fd
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: params.toString()
       })
       // Apps Script web apps usually allow CORS and return 200
       if (res.ok) {
