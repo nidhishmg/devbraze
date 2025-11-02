@@ -12,11 +12,7 @@ const Footer = () => {
       { name: 'Contact', href: '#contact' }
     ],
     'Resources': [
-      { name: 'Join DevBraze', href: '/join' },
-      { name: 'Project Gallery', href: '/projects' },
-      { name: 'Workshop Materials', href: '/resources' },
-      { name: 'Code of Conduct', href: '/conduct' },
-      { name: 'FAQ', href: '/faq' }
+      { name: 'Materials', href: '/resources' }
     ],
     'Connect': [
       { name: 'Discord Server', href: '#' },
