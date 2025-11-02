@@ -292,13 +292,26 @@ const EventsPage = () => {
           >
             <div className="bg-slate/20 border border-slate/20 hover:border-cyan/30 rounded-xl overflow-hidden group relative transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
               <div className="grid md:grid-cols-2 gap-0">
-                {/* Event Image */}
+                {/* Event Media (Video for EasyEDA, else Image) */}
                 <div className="relative h-64 md:h-80 overflow-hidden">
-                  <img 
-                    src={upcomingEvents[0].image} 
-                    alt={upcomingEvents[0].title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                  {upcomingEvents[0]?.slug === 'easyeda-workshop-sep-23-2025' ? (
+                    <video
+                      src="/videos/workshop.mp4"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      aria-label={upcomingEvents[0].title}
+                    />
+                  ) : (
+                    <img 
+                      src={upcomingEvents[0].image} 
+                      alt={upcomingEvents[0].title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-r from-navy/80 to-transparent"></div>
                   
                   {/* Featured Badge */}
